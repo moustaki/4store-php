@@ -75,7 +75,7 @@ class FourStore_Store {
         // FIXME - should it be scoped by graph?
         $exists = $this->ask(FourStore_Namespace::to_sparql() . "ASK WHERE { $turtle }");
         if (!$exists) {
-            $this->add($graph, $turtle);
+            return $this->add($graph, $turtle);
         }
     }
 
