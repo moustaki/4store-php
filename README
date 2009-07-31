@@ -1,1 +1,5 @@
+4store-php by Yves Raimond
+
 A small PHP library to interact with a Garlik's 4Store instance over HTTP
+
+See examples in the examples/ directory
