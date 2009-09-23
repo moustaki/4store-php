@@ -1,0 +1,4 @@
+For recent versions of Zend (>1.8), you'll need to replace the autoloader lines by:
+
+require '/usr/share/php/libzend-framework-php/Zend/Loader/Autoloader.php';
+spl_autoload_register(array('Zend_Loader_Autoloader', 'autoload'));
