@@ -9,9 +9,9 @@ A small PHP library to interact with a Garlik&apos;s 4Store instance over HTTP
 
 See examples in the examples/ directory</description>
  <lead>
-  <name>Stefan Walk</name>
-  <user>et</user>
-  <email>et@php.net</email>
+  <name>Yves Raimond</name>
+  <user>moustaki</user>
+  <email>yves@dbtune.org</email>
   <active>yes</active>
  </lead>
  <date>2012-03-11</date>
