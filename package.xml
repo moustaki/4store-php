@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package packagerversion="1.9.2" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0 http://pear.php.net/dtd/tasks-1.0.xsd http://pear.php.net/dtd/package-2.0 http://pear.php.net/dtd/package-2.0.xsd">
+ <name>FourStore</name>
+ <channel>pear.php.net</channel>
+ <summary>A small PHP library to interact with Garlik&apos;s 4Store</summary>
+ <description>4store-php by Yves Raimond
+
+A small PHP library to interact with a Garlik&apos;s 4Store instance over HTTP
+
+See examples in the examples/ directory</description>
+ <lead>
+  <name>Stefan Walk</name>
+  <user>et</user>
+  <email>et@php.net</email>
+  <active>yes</active>
+ </lead>
+ <date>2012-03-11</date>
+ <time>01:24:17</time>
+ <version>
+  <release>0.1.0</release>
+  <api>0.1.0</api>
+ </version>
+ <stability>
+  <release>beta</release>
+  <api>beta</api>
+ </stability>
+ <license uri="http://www.opensource.org/licenses/mit-license.php">MIT</license>
+ <notes>
+PHP5 syntax
+ </notes>
+ <contents>
+  <dir baseinstalldir="/" name="/">
+   <file baseinstalldir="/" md5sum="f3fa833bc296b2aaf2c591e93eb4d8dc" name="examples/add.php" role="doc" />
+   <file baseinstalldir="/" md5sum="f20f03574d7ae99500ba6a9c3fc43aa1" name="examples/add_if_new.php" role="doc" />
+   <file baseinstalldir="/" md5sum="debadd0a16f17a6c361c9c6989e39410" name="examples/ask.php" role="doc" />
+   <file baseinstalldir="/" md5sum="1f8b5639009ffba73def2658958c5113" name="examples/delete.php" role="doc" />
+   <file baseinstalldir="/" md5sum="cde502a654ac17fd88e5fdbac4a9ed71" name="examples/README" role="doc" />
+   <file baseinstalldir="/" md5sum="aa7cfb1b1018ef6d36807145e170ad54" name="examples/select.php" role="doc" />
+   <file baseinstalldir="/" md5sum="a5ff16a4faf7ab4e09ab2f9cffdef036" name="examples/set.php" role="doc" />
+   <file baseinstalldir="/" md5sum="1fe75f1072e510d6275ad35aef83fc14" name="FourStore/Namespace.php" role="php" />
+   <file baseinstalldir="/" md5sum="27d59fbb3dbaa7017b449e8913004c8f" name="FourStore/Store.php" role="php" />
+   <file baseinstalldir="/" md5sum="c7feae8e2f4ae2f8a062fac2317f8e9c" name="README" role="doc" />
+  </dir>
+ </contents>
+ <dependencies>
+  <required>
+   <php>
+    <min>5.0.0</min>
+   </php>
+   <pearinstaller>
+    <min>1.5.6</min>
+   </pearinstaller>
+   <package>
+    <name>zend</name>
+    <channel>zend.googlecode.com/svn/</channel>
+    <min>0.1.0</min>
+   </package>
+  </required>
+ </dependencies>
+ <phprelease />
+ <changelog>
+  <release>
+   <version>
+    <release>0.1.0</release>
+    <api>0.1.0</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>beta</api>
+   </stability>
+   <date>2012-03-11</date>
+   <license uri="http://www.opensource.org/licenses/mit-license.php">MIT</license>
+   <notes>
+PHP5 syntax
+   </notes>
+  </release>
+ </changelog>
+</package>
