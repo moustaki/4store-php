@@ -89,7 +89,7 @@ class FourStore_Store {
     }
 
     public function add($graph, $turtle) {
-        $post_endpoint = array_shift(split("/sparql/", $this->_endpoint)) . "/data/";
+        $post_endpoint = array_shift(explode("/sparql/", $this->_endpoint)) . "/data/";
         $client = $this->client;
         $client->setUri($post_endpoint);
         $client->setParameterPost('graph', $graph);
