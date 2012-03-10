@@ -1,39 +1,57 @@
 <?php
+require_once 'PHPUnit/Framework/TestCase.php';
+require_once 'FourStore/Store.php';
 require_once 'Zend/Http/Client.php';
-require_once 'FourStore/Namespace.php';
 
-class FourStore_Store {
+class FourStore_StoreTest extends PHPUnit_Framework_TestCase {
 
-    private $_endpoint;
-    protected $client;
-    protected $document;
+    public function setUp() {
+        $this->client = $this->getMock('Zend_Http_Client');
+        $this->store = new FourStore_Store('http://example.com/');
+        $this->store->setClient($this->client);
+    }
+    public function testSelect() {
+        $query = "SELECT ?src ?bobNick
+            FROM NAMED <http://example.org/foaf/aliceFoaf>
+            FROM NAMED <http://example.org/foaf/bobFoaf>
+            WHERE
+              {
+                GRAPH ?src
+                { ?x foaf:mbox <mailto:bob@work.example> .
+                  ?x foaf:nick ?bobNick
+                }
+              }";
 
-    public function __construct($endpoint) {
-        $this->setEndpoint($endpoint);
-        $this->setClient(new Zend_Http_Client());
-        $this->setDocument(new DOMDocument());
+        $this->client->expects($this->once())
+                    ->method('setParameterPost')
+                    ->with('query', 'PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+' . $query);
+
+        $this->client->expects($this->once())
+                    ->method('setUri')
+                    ->with('http://example.com/');
+
+        $response = $this->getMock('Zend_Http_Response', array(), array(null, array()));
+
+        $this->client->expects($this->once())
+                    ->method('request')
+                    ->with('POST')
+                    ->will($this->returnValue($response));
+
+        $response->expects($this->once())
+                    ->method('getBody')
+                    ->will($this->returnValue('<foo><result><binding name="hello">world</binding><binding name="goodbye">cruel world</binding></result><result><binding name="hello">world</binding><binding name="goodbye">world cruel</binding></result></foo>'));
+
+        $this->assertSame(array(
+            0 => array('hello' => 'world', 'goodbye' => 'cruel world'),
+            1 => array('hello' => 'world', 'goodbye' => 'world cruel')
+        ), $this->store->select($query));
     }
 
-    /**
-     * Set the URI of a SPARQL endpoint/HTTP endpoint for 4-store
-     */
-    public function setEndpoint($endpoint) {
-        $this->_endpoint = $endpoint;
-    }
 
-    /**
-     * Set the Zend_HTTP_Client instance to use.
-     */
-    public function setClient(Zend_Http_Client $client) {
-        $this->client = $client;
-    }
-
-    /**
-     * Set the DOMDocument instance to use as a prototype.
-     */
-    public function setDocument(DOMDocument $doc) {
-        $this->document = $doc;
-    }
 
     // Does a SPARQL query and puts the results in a PHP array of hashes (keys are the selected SPARQL variables)
     public function select($query) {
@@ -115,7 +133,4 @@ class FourStore_Store {
 
         return $response;
     }
-
 }
-
-?>

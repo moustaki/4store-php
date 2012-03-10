@@ -15,7 +15,7 @@ See examples in the examples/ directory</description>
   <active>yes</active>
  </lead>
  <date>2012-03-11</date>
- <time>01:24:17</time>
+ <time>01:58:15</time>
  <version>
   <release>0.1.0</release>
   <api>0.1.0</api>
@@ -38,7 +38,8 @@ PHP5 syntax
    <file baseinstalldir="/" md5sum="aa7cfb1b1018ef6d36807145e170ad54" name="examples/select.php" role="doc" />
    <file baseinstalldir="/" md5sum="a5ff16a4faf7ab4e09ab2f9cffdef036" name="examples/set.php" role="doc" />
    <file baseinstalldir="/" md5sum="1fe75f1072e510d6275ad35aef83fc14" name="FourStore/Namespace.php" role="php" />
-   <file baseinstalldir="/" md5sum="27d59fbb3dbaa7017b449e8913004c8f" name="FourStore/Store.php" role="php" />
+   <file baseinstalldir="/" md5sum="a4af67165f68c2e3d1234b416d71752b" name="FourStore/Store.php" role="php" />
+   <file baseinstalldir="/" md5sum="43d5b10db9c65ed82d6f4aebe774dc10" name="tests/FourStore_StoreTest.php" role="test" />
    <file baseinstalldir="/" md5sum="c7feae8e2f4ae2f8a062fac2317f8e9c" name="README" role="doc" />
   </dir>
  </contents>
@@ -52,7 +53,7 @@ PHP5 syntax
    </pearinstaller>
    <package>
     <name>zend</name>
-    <channel>zend.googlecode.com/svn/</channel>
+    <channel>zend.googlecode.com/svn</channel>
     <min>0.1.0</min>
    </package>
   </required>
